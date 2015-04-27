@@ -1,0 +1,667 @@
+/* Theme colors */
+
+/* WHITE */
+$offWhite: 			rgba(247,247,247,1); //#f7f7f7
+$offerWhite:		rgba(243,243,243,1); //#f3f3f3
+$paleWhite: 		rgba(239,240,243,1); //#eff0f3
+$palerWhite:		rgba(252,252,252,1); //#fcfcfc
+$almostWhite:		rgba(253,253,253,1); //#f5f5f5
+$white:				rgba(255,255,255,1); //#ffffff
+$clearWhite:		rgba(255,255,255,0); //#ffffff 0 alpha
+$transpWhite:		rgba(255,255,255,.3); //#ffffff 30% alpha
+
+/* GRAY */
+$blueLightGray:		rgba(178,191,199,1); //#b2bfc7
+$lightGray:			rgba(238,238,238,1); //#eeeeee
+$skyGray:			rgba(226,226,226,1); //#E2E2E4
+$paleGray:			rgba(221,221,221,1); //#dddddd
+$palerGray:			rgba(240,240,240,1); //#cccccc
+$middleGray:		rgba(170,170,170,1); //#aaaaaa
+$midGray:			rgba(153,153,153,1); //#999999
+$midistGray:		rgba(136,136,136,1); //#888888
+$midDarkGray:		rgba(102,102,102,1); //#666666
+$midDarkerGray:		rgba(85,85,85,1); 	 //#555555
+$darkGray:			rgba(51,51,51,1);    //#333333
+$darkerGray:		rgba(34,34,34,1);    //#222222
+
+
+
+/* BLUE */
+$darkBlue:			rgba(247,247,247,1); //#2c3742
+$royalBlue:			rgba(57,89,159,1);   //#39599F
+$matteBlue:			rgba(104,135,196,1); //#6887c4
+$matteRoyalBlue:    rgba(69,102,169,1);  //#4566a9
+$purpBlue:			rgba(87,115,172,1);  //#5773AC
+$skyBlue:			rgba(40,160,229,1);  //#28a0e5
+$flattBlue:			rgba(59,72,104,1);   //#3B4868
+
+/* Turquoise */
+$turquoise:			rgba(15,166,188,1); //#0fa6bc
+$lightTurquoise:	rgba(22,203,230,1); //#16cbe6
+
+/* Teal */
+$teal:				rgba(15,166,188,1); //#0fa6bc
+$lightTeal:			rgba(29,193,219,1); //#1dc1da
+
+/* DarkBrown & Black */
+$black:				rgba(0,0,0,1);      //#000000
+$darkBlack:			rgba(17,17,17,1);	//#111111
+$matteBlack:		rgba(33,33,33,1);   //#212121
+
+
+$base-font-size:16;
+$em-base:14px;
+/* 
+ *-------------------------------------------------------------------------------
+ * Fonts available to our project: Droid Sans, Oswald, Open Sans
+ *-------------------------------------------------------------------------------
+ */
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans|Oswald|Open+Sans);
+
+/*
+ *-------------------------------------------------------------------------------
+ * Third Party Mixin Library stocked full of useful functions and tools.
+ * http://bourbon.io/ for documentation
+ */
+@import "incl/bourbon/bourbon";
+
+/* Custom mixins */
+@import "incl/custom-mixins";
+
+/* Changing bootstraps sans-serif font to a google font */
+@font-family-sans-serif: "Open Sans", sans-serif;
+/* Changing location of fonts for icons */
+@icon-font-path: "../../fonts/";
+
+/* Changing Bootstrap colors to our theme */
+@gray-base: $black;
+@gray-darker: $darkerGray;
+@gray-dark: $darkGray;
+@gray: $midDarkGray;
+@gray-light: $midGray;
+@gray-lighter: $paleGray;
+@brand-primary: $darkBlue;
+@brand-info: $teal;
+
+@body-bg: $offWhite;
+@text-color: $darkerGray;
+@link-color: $turquoise;
+@link-hover-color: $royalBlue;
+@link-hover-decoration: none;
+
+@border-radius-small: rem(5);
+@border-radius-large: rem(10);
+@border-radius-base: rem(10);
+
+@input-bg: $paleGray;
+@input-bg-disabled: $darkGray;
+@input-color: $darkGray;
+@input-border-radius: rem(10);
+@input-border-focus: $paleGray;
+@input-color-placeholder: $midGray;
+
+@grid-gutter-width: rem(20);
+
+/* Include bootstrap sass project */
+@import "incl/bootstrap/bootstrap";
+
+body {
+	@include background(linear-gradient($white, $lightGray) top repeat);
+	@include position();
+	@include myMargin(0,0,0,0);
+	@include myPadding(0,0,0,0);
+}
+
+.page-content {
+	/* first occurance of the row class */
+	> .row {
+		@include myMargin(rem(30) !important, 0 !important, 0 !important, 0 !important);
+	}
+}
+
+.header {
+	background-color:$darkBlue;
+	@include size(null,rem(50));
+	.logo {
+
+		h1 {
+			@include font-size(30,$base-font-size);
+			@include myPadding(rem(10),0,rem(10),0);
+			@include myMargin(0,0,0,0);
+
+			a {
+				color:$white;
+				font-family:"Oswald",sans-serif;
+
+				&:hover {
+					color:$white;
+					@include border(none,none,none,none);
+					text-decoration: none;
+				}
+			}
+		}
+	}
+
+	.form {
+		@include myMargin(rem(10),auto,rem(10),auto);
+		@include size(100%,null);
+		max-width:rem(300);
+	}
+
+	.navbar {
+		background:none !important;
+		@include border(none !important,none !important, none !important, none !important);
+
+		/* All Elements within the navbar class */
+		* {
+			box-shadow:none !important;
+		}
+
+		.label {
+			@include font-size(12,$base-font-size);
+			@include myPadding(rem(4),rem(8),rem(4),rem(8));
+			@include myMargin(0,rem(2),0,rem(2));
+			border-radius:rem(15) !important;
+		}
+
+		i {
+			@include myMargin(false,rem(3),false,false);
+		}
+
+		.nav {
+			> li {
+				> a {
+					color:$white !important;
+					@include font-size(13,$base-font-size, true);
+					@include border(false,false,none !important,none);
+					@include myMargin(0 !important,false,false,false);
+					font-weight:bold;
+				}
+			}
+		}
+	}
+
+	.navbar-nav {
+		> .open {
+			> a,> a:hover,> a:focus {
+				background:none !important;
+			}
+		}
+	}
+
+	.navbar-collapse {border:none !important}
+	.navbar-header {
+		@include size(rem(43),null);
+		@include myMargin(0,auto,0,auto);
+		button {
+			color:$white !important;
+			@include myPadding(rem(5),rem(10),rem(5),rem(10));
+		}
+	}
+
+	.navbar-toggle {
+		background-color:$lightTeal !important;
+		@include border(rem(1) solid $teal !important);
+
+		&:hover,&:focus {
+			background-color:$teal !important;
+			@include border(rem(1) solid $teal !important);
+		}
+	}
+
+	.dropdown-menu {
+		border-radius:rem(6) !important;
+		background-color:$white !important;
+
+		li {
+			@include font-size(13,$base-font-size);
+			@include myPadding(rem(6),rem(15),rem(6),rem(15));
+			@include border(false,false,rem(1) dashed $offerWhite);
+
+			a {
+				color:$midistGray;
+				@include myPadding(null,null,null,0 !important);
+
+				&:hover {
+					background:none !important;
+					color:$midDarkGray !important;
+					@include border(none !important,none !important, none !important, none !important);
+				}
+			}
+
+			&:last-child {
+				@include border(none,none,none,none);
+			}
+		}
+	}
+
+	.dropdown-big {
+		min-width:rem(300);
+		.dropdown-head {
+			@include myPadding(rem(7),rem(15),rem(7),rem(15));
+			@include border(false,false,rem(1) solid $paleGray);
+			@include myMargin(rem(-5),null,null,null);
+			@include border-top-radius(rem(-5));
+			background:$palerWhite;
+		}
+		.dropdown-title {
+			@include font-size(13,$base-font-size);
+			font-weight:bold;
+			color:$midGray;
+		}
+		.dropdown-body {
+			background:$white;
+		}
+		.dropdown-foot {
+			@include myPadding(rem(7),rem(15),rem(7),rem(15));
+			@include border(rem(1) solid $paleGray,false,false,false);
+			@include myMargin(false,false,rem(-5),false);
+			@include border-bottom-radius(rem(5));
+			@include font-size(12,$base-font-size);
+			background:$palerWhite;
+			a {
+				color:$midistGray;
+				&:hover {
+					@include border(false,false,none,false);
+					color:$midDarkerGray;
+				}
+			}
+		}
+	}
+
+	.navbar-nav {
+		.caret {
+			border-top-color:$white !important;
+			border-bottom-color:$white !important;
+		}
+
+		> .open {
+			> a, > a:hover, > a:focus {
+				.caret {
+					@include border-color($white null $white null);
+				}
+			}
+		}
+	}
+}
+
+footer {
+	@include box-shadow(0,0,rem(3),$darkBlack,true);
+	@include line-height(25);
+	@include font-size(16,$base-font-size);
+	@include myPadding(rem(10),0,rem(10),0);
+	@include position(relative,null null 0 null);
+	background-color:$darkBlue;
+	color:$white;
+
+
+	/* Footer links */
+	a {
+		@include border(false, false, rem(1) dotted $midistGray, false);
+		color: $lightGray;
+
+		&:hover {
+			color: $middleGray;
+			@include border(none,none,none,none);
+		}
+	}
+
+	hr {
+		@include myMargin(rem(10),0,rem(10),0);
+		@include border(rem(1) solid $black,false,rem(1) solid $matteBlack,false);
+	}
+
+	.copy {
+		@include font-size(13,$base-font-size);
+		@include myMargin(rem(15),0,rem(15),0);
+	}
+
+} //end footer
+
+.content-box, .content-box-large {
+	@include myMargin(false,false,rem(30),false);
+   	@include myPadding(rem(10),rem(10),rem(10),rem(10));
+   	@include border(rem(1) solid $lightGray,rem(2) solid $lightGray,rem(2) solid $lightGray,rem(1) solid $lightGray);
+   	background:$white;
+   	border-radius:rem(10);
+
+}
+.content-box-large {
+    @include myPadding(rem(20),rem(20),rem(20),rem(20));
+}
+
+.box-with-header {
+	@include border(none);
+	@include border-top-radius(0);
+}
+
+.content-box-header {
+   min-height: rem(40);
+   background:$almostWhite;
+   @include border-top-radius(rem(20));
+   @include myPadding(rem(10),rem(10),rem(10),rem(10));
+   @include border(rem(1) solid $lightGray,rem(2) solid $lightGray,false,rem(1) solid $lightGray);
+   @include font-size(16,$base-font-size);
+   &:after {
+   	@extend %clearfix;
+   }
+}
+
+.sidebar {
+	ul.nav,ul.nav ul {
+		list-style:none;
+		@include myMargin(0,0,0,0);
+		@include myPadding(0,0,0,0);
+	}
+
+	ul.nav {
+		ul {
+			@include myMargin(0,0,0,0);
+			@include myPadding(0,0,0,0);
+			display:none;
+		}
+	}
+
+	.nav {
+		> li {
+			@include border(false,false,rem(1) dashed $lightGray,false);
+			&:last-child {
+				@include border(false,false,none,false);
+			}
+			li {
+				@include myMargin(0,0,0,0);
+				a {
+					@include myPadding(false,false,false,rem(25));
+				}
+			}
+			> a {
+				@include font-size(14,$base-font-size);
+				@include line-height(20);
+				@include myPadding(rem(15),rem(15),rem(15),rem(15));
+				@extend %activeHover;
+				display:block;
+				font-weight:bold;
+				background:none;
+				text-decoration: none;
+				> i {
+					@include myMargin(false,rem(5),false,false);
+				}
+			}
+			> ul {
+				> li {
+					> a {
+						@include font-size(13,$base-font-size);
+						@include line-height(20);
+						@include myPadding(rem(8),rem(10),rem(8),rem(40));
+						@extend %activeHover;
+						display:block;
+						text-decoration:none;
+						font-weight:bold;
+						&:hover {
+							@extend %activeHover;
+						}
+					}
+				}
+				> li.active {
+					> a {
+						@extend %activeHover;
+					}
+				}
+			}
+		}
+		li {
+			a {
+				&:hover {
+					@extend %activeHover;
+				}
+			}
+		}
+
+		li.open {
+			> a {
+				@extend %activeHover;
+				@include border(false,false,rem(1) dashed $lightGray,false);
+
+				> .caret {
+					@include border(none,rem(4) solid transparent,rem(4) solid $middleGray !important,rem(4) solid transparent);
+				}
+
+				> &:hover {
+					@include border-color(null null $middleGray null);
+				}
+			}
+		}
+
+		a {
+			.caret {
+				@include border(rem(4) solid $middleGray,rem(4) solid transparent,false,rem(4) solid transparent);
+				@include size(0,0);
+				@include myMargin(rem(8),false,false,rem(2));
+				float:right;
+				display:inline-block;
+				vertical-align: top;
+				content:"";
+			}
+			&:hover {
+				.caret {
+					@include border-color($middleGray null null null);
+				}
+			}
+		}
+	}
+}
+
+.login-bg {
+	@include fade-bg($transpWhite,$clearWhite,$paleWhite);
+	@include size(null,100%);
+}
+
+.login-wrapper {
+	@include position(absolute,null 0 null 0);
+	text-align:center;
+
+	.box {
+		@include myMargin(0,auto,0,auto);
+		@include myPadding(rem(30),0,rem(30),0);
+		@include css3(box-shadow,rgba(0,0,0,0.4) 0 rem(1) rem(3), rgba(0,0,0,0.35) 0 0 rem(1));
+		@include css3(border-radius,rem(6));
+		float:none;
+		background:$white;
+
+		.content-wrap {
+			@include size(82%,null);
+			@include myMargin(0,auto,0,auto);
+		}
+
+		h6 {
+			@include myMargin(null,null,rem(35),null);
+			@include font-size(18,$base-font-size);
+			font-weight:600;
+			text-transform:uppercase;
+		}
+
+		input[type="text"],input[type="password"] {
+			@include font-size(15,$base-font-size);
+			@include size(null,rem(40));
+			@include myMargin(false,false,rem(10),false);
+			@include border-color($blueLightGray $blueLightGray $blueLightGray $blueLightGray);
+			@include myPadding(false,false,false,rem(12));
+
+			&:focus {
+				@include border(rem(1) solid $skyBlue,rem(1) solid $skyBlue,rem(1) solid $skyBlue,rem(1) solid $skyBlue);
+				@include css3(box-shadow,inset 0 rem(1) rem(2) $paleGray,0 0 rem(5) $skyBlue);
+				outline:none;
+			}
+		}
+
+		input[type="password"] {
+			@include myMargin(false,false,rem(10),false);
+		}
+
+		.action {
+			@include position(relative,rem(30) null null null);
+			@include myPadding(rem(15),0,rem(15),0);
+		}
+
+		.signup {
+			text-transform:uppercase;
+			@include font-size(13,$base-font-size);
+			@include myPadding(rem(7),rem(25),rem(7),rem(25));
+			border-radius:rem(5);
+
+		}
+
+		.social {
+			@include myMargin(0,auto,0,auto);
+			@include size(90%,null);
+			a.face_login {
+				@include background-image(linear-gradient($matteBlue 0%,$matteRoyalBlue 100%));
+				@include border(rem(1) solid $flattBlue,rem(1) solid $flattBlue,rem(1) solid $flattBlue,rem(1) solid $flattBlue);
+				@include border-top-radius(rem(3));
+				@include border-bottom-radius(rem(3));
+				@include size(99%,rem(37));
+				display:inline-block;
+				overflow:hidden;
+				text-decoration:none !important;
+				&:hover {
+					@include background-image(linear-gradient($matteBlue 0%,$purpBlue 100%));
+				}
+				span.face_icon {
+					@include border-left-radius(rem(3));
+					@include border-right-radius(0);
+					@include size(rem(51),rem(37));
+					float:left;
+					text-align:center;
+					img {
+						@include myMargin(rem(5),false,false,false);
+					}
+				}
+				span.text {
+					color:$white;
+					float:left;
+					font-weight:bold;
+					text-shadow:rem(1) rem(1) 0 $royalBlue;
+					@include font-size(15,$base-font-size);
+					@include myMargin(rem(6),0,0,rem(25));
+				}
+			}
+		}
+
+		.division {
+			@include myMargin(rem(17),0,rem(23),0);
+			@include size(100%,null);
+			display:inline-block;
+			text-align: center;
+
+			hr {
+				@include border-color($skyGray $skyGray $skyGray $skyGray);
+				@include border-width(rem(1) rem(1) rem(1) rem(1));
+				@include myMargin(0,0,0,0);
+				@include size(40%,null);
+				@include position(absolute);
+			}
+			hr.left {
+				top:rem(13);
+			}
+			hr.right {
+				bottom:rem(6);
+				right:0;
+			}
+			span {
+				color:$midDarkGray;
+				@include font-size(18,$base-font-size);
+			}
+		}
+	}
+
+	.already {
+		@include myMargin(rem(30),auto,0,auto);
+		@include font-size(13,$base-font-size);
+		float:none;
+		text-align:center;
+		p {
+			display:inline-block;
+			color:$darkerGray;
+		}
+		a {
+			color:$darkerGray;
+			@include myMargin(false,false,false,rem(7));
+			@include border(false,false,rem(1) solid transparent,false);
+			&:hover {
+				color:$black;
+				text-decoration:none;
+				@include border-color(null null $black null);
+			}
+		}
+	}
+}
+
+.panel-heading>.panel-title, .content-box-header .panel-title {
+	@include myPadding(0,rem(15),rem(10),rem(15));
+    float: left;
+}
+
+.panel-heading>.panel-title>*, .content-box-header .panel-title>* {
+	@include myMargin(0,0,0,0);
+}
+
+.panel-heading>.panel-title>span, .content-box-header .panel-title>span {
+    font-weight: normal;
+}
+
+.panel-heading>.panel-options, .content-box-header .panel-options {
+    float: right;
+    @include myPadding(false,rem(15),false,false);
+}
+
+.panel-heading>.panel-options>a, .content-box-header .panel-options>a {
+	@include myMargin(rem(10),false,false,false);
+}
+
+.panel-body {clear:both}
+
+/* Desktop */
+
+@media (max-width: rem(991)){
+   .header{
+   		@include size(null,auto);
+   		@include myPadding(rem(15),0,rem(15),0);
+   		.logo{
+   			@include myPadding(false,false,rem(10),false);
+      		text-align:center;
+   		}
+   		
+   		.form{
+   			@include myMargin(rem(10),auto,rem(10),auto);
+   		}
+   	}
+
+   .sidebar, .content-box{
+   		@include myMargin(false,false,rem(30),false);
+   		@include size(100%,null);
+   		@include position();
+      	float:none;
+   }  
+
+   .mainy{
+   		@include myMargin(false,false,false,0);
+   }
+
+   .sidebar-dropdown{
+   		@include myMargin(0 auto rem(10) auto);
+   		@include border(false,false,rem(1) dashed $lightGray,false);
+   		@include myPadding(false,false,rem(10),false);
+      	display:block;
+      	text-align:center;
+
+	   a, a:hover{
+	   		@include myPadding(rem(6),rem(12),rem(6),rem(12));
+	   		@include border(false,false,none,false);
+	   		color:$white;
+	   		background:$lightTurquoise;
+	      	display:block;
+	      	box-shadow:0 0 rem(1) #0fa6bc;
+	      	border-radius:rem(10);
+	   }  
+	}
+}
